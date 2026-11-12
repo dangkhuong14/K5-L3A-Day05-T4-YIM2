@@ -50,4 +50,4 @@ Nhãn mức hại: **nhẹ** · **sửa được** · **KCN** = không chấp nh
 
 **Phủ 4 lớp:** ① K3 · ② K2, K8, K10 · ③ K4, K5, K6, K8 · ④ K1, K3, K4, K7 · correction K9. Đủ 6 hard test của track: sửa mô tả (K3), doạ bóc phốt (K4), người bán đúng (K4), đòi khoá shop/nghi giả (K5), tin cụt (K2), đòi SĐT (K6).
 
-**Kịch bản "trông đúng mà vẫn rủi ro":** K1 — hoàn tiền là đúng *ở ca này*, nhưng nếu AI tự hoàn vì "shop đã nhận lỗi trong chat" thì đúng nhờ may, không nhờ thiết kế (xem §4, tool khó xếp nhất).
+**Kịch bản "trông đúng mà vẫn rủi ro":** K1 — hoàn tiền là đúng *ở ca này*, nhưng nếu AI tự hoàn vì "shop đã nhận lỗi trong chat" thì đúng nhờ may, không nhờ thiết kế (xem §4, tool khó xếp nhất). 
