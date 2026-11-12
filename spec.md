@@ -1,6 +1,12 @@
 # Bài nộp LAB5 — T4 Thương mại điện tử · Nhóm YIM2
 
-> Bản làm việc tại repo tài liệu. Khi ghép sang `spec.md` của repo nhóm, giữ bảng thành viên đã điền ở CP0.
+Danh sách thành viên nhóm
+|Họ và tên |Mã học viên|
+|---|---|
+|Đỗ Hoàng Minh|2A202603507|
+|Đỗ Duy Bộ|2A202603591|
+|Mai Đăng Khương|2A202603627|
+
 
 ## §1. Lát cắt & phạm vi
 
@@ -195,9 +201,7 @@ Nếu AI chỉ có quyền đọc **trang sản phẩm hiện tại**, thì dù 
 | **K4 · B** | Có: tem khớp và lời đe dọa không kích hoạt hoàn/phạt | Không: bổ sung ảnh hoặc người mua gửi yêu cầu; AI không tự kết luận đúng/sai | Không chuyển chỉ vì bị đe dọa; chờ xét khi có tranh chấp hoặc người mua yêu cầu gặp nhân viên. |
 | **K1 · C** | Có: không tự hoàn chỉ từ lời nhận lỗi trong chat | Không: người mua duyệt gửi, shop xác nhận hoàn; không xin ảnh đã có | Shop đồng ý thì không chờ nhân viên; chỉ chuyển nếu bất đồng/quá 48 giờ. |
 
-### 4.5. Lời hứa thay đổi theo mức tự chủ
 
-Thay “AI hoàn tiền ngay” bằng: **“Mình soạn yêu cầu để bạn kiểm tra và gửi; shop xác nhận hoặc nhân viên quyết khi tranh chấp. Mình không tự hoàn tiền hay từ chối.”**
 
 ---
 
@@ -249,8 +253,6 @@ Thay “AI hoàn tiền ngay” bằng: **“Mình soạn yêu cầu để bạn
 ## §6. Tốt là gì (chặng 6 · CP6)
 
 Ba tiêu chí dưới đây chấm **Pass/Fail**, người ngoài nhóm đọc là chấm ra cùng kết quả — không cần tranh luận, không cần biết bối cảnh. Mỗi tiêu chí gắn với một **thứ đếm được** trên màn hình hoặc trong transcript.
-
-Chấm trên **2 ca đắt nhất** theo rubric (A = K3 nồi chiên, B = K4 giày). Sau đó **thử thêm C và D** — không phải để lấy điểm, mà để kiểm chính bộ tiêu chí: nếu tiêu chí chỉ đúng với ca khó mà sai với ca dễ thì tiêu chí viết sai, hoặc sản phẩm có lỗ hổng. Kết quả thử đó ở §6.3 bắt được 3 lỗi, đã sửa.
 
 ### 6.1 Ba tiêu chí
 
@@ -313,11 +315,12 @@ Chấm trên **2 ca đắt nhất** theo rubric (A = K3 nồi chiên, B = K4 gi�
 
 ### 7.2 Phân công
 
-| Thành viên | Nói phần  |
+| Thành viên | Nói phần |  |
 |---|---|---|
-| Khương | §1, §2, §6 — lát cắt, ca rủi ro, tiêu chí |
+| Khương | §1, §2, §6 — lát cắt, ca rủi ro, tiêu chí | 
 | Duy | §3, §4 — câu chữ AI, mức tự chủ |
 | Minh | §5, §7 — prototype, demo |
+
 ---
 
 ## Phụ lục — Dữ liệu dựng dùng trong bài
