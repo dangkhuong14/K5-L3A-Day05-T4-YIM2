@@ -297,11 +297,10 @@ Ba tiêu chí dưới đây chấm **Pass/Fail**, người ngoài nhóm đọc l
 5. **Prototype định tuyến "ca lạ" bằng từ khoá**, không hiểu tin thật. Nó minh hoạ **đường đi** (5 đường: ngoài quyền / nghi hàng giả / không có tool / quá hạn / không hiểu), không phản ánh khả năng hiểu ngôn ngữ. Đây là mock đã khai báo, không phải năng lực thật — người chấm không được hiểu nhầm là AI thật.
 6. **Ca D vẫn cần người mua gõ lại** nếu ý họ là đơn quá hạn. Muốn hết hẳn thì phải hiểu được "hàng sai rồi" trỏ đơn nào — chính là giới hạn của mock ở lỗi 5.
 
-> **Việc còn lại trước CP8:** 3 sửa đổi ở §6.3 phải có trong `prototype/index.html` (bản dựng chính thức); nếu thiếu, **C và D sẽ trượt T3** dù §6 viết đúng. Bản tham chiếu logic hiện có là `prototype/index-example.html`.
 
 ---
 
-## §7. Demo và ca lạ (chặng 7 · CP7)
+## §7. Demo và ca lạ 
 
 ### 7.1 Kịch bản 4 phút
 
