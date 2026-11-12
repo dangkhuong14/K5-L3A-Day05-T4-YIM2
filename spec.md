@@ -147,3 +147,64 @@ Nhãn mức hại: **nhẹ** · **sửa được** · **KCN** = không chấp nh
 Nếu AI chỉ có quyền đọc **trang sản phẩm hiện tại**, thì dù prompt có viết "hãy so với mô tả lúc đặt" bao nhiêu lần, AI **không có dữ liệu** của bản lúc đặt — nó sẽ trích dòng "lòng giỏ 5L" (có thật) một cách tự tin. Câu chữ càng lịch sự, lỗi càng khó phát hiện.
 
 **Thiết kế cứu:** thêm tool chỉ-đọc `xem_don_va_mo_ta_luc_dat` (§4) trả về **snapshot mô tả lúc đặt + diff với bản hiện tại + ngày sửa**; AI chỉ được trích mô tả từ snapshot. Trên màn hình, thẻ đối chiếu luôn ghi ngày của bản đang dùng, nên người mua, người bán và nhân viên đều tự kiểm được (PAIR: tin đúng mức). Lỗi tương tự: **AI hứa hoàn tiền** (K4) — không câu chữ nào rút lại được tiền đã đi; cứu bằng việc AI không có quyền gọi tool chuyển tiền (§4).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## Phụ lục — Dữ liệu dựng dùng trong bài
+
+**Ghi chú dữ liệu.** Toàn bộ đơn hàng, shop, người mua, ngày giờ trong bài là **dữ liệu dựng**. "Hôm nay" trong kịch bản = **12/11/2026, 15:20**. Nhóm dùng **chính sách dựng** sau (khác chính sách thật 15 ngày của Shopee, đúng như track lưu ý):
+
+| Chính sách dựng (YIM2) | Giá trị |
+|---|---|
+| Hạn người mua gửi yêu cầu trả hàng | **7 ngày** kể từ ngày giao thành công |
+| Hạn người bán phản hồi yêu cầu | **48 giờ** kể từ lúc người mua bấm Gửi |
+| Nhân viên sàn quyết khi hai bên không thống nhất | trong **3 ngày làm việc** |
+| Mô tả dùng để xét | **bản chụp mô tả lúc đặt hàng** (snapshot), không phải mô tả hiện tại |
+
+**Dữ liệu dựng dùng xuyên suốt** (prototype dùng đúng các đơn này):
+
+| Mã | Đơn | Mô tả lúc đặt (snapshot) | Mô tả hiện tại | Ngày đặt → giao | Hạn trả hàng |
+|---|---|---|---|---|---|
+| **A** | Nồi chiên không dầu BếpXinh 6L · shop *Gia Dụng Mộc An* · 1.290.000đ | "Dung tích: **6L**" (không nói tổng hay lòng nồi) | **Sửa 08/11**: "Dung tích tổng 6L · lòng giỏ **5L**" | 03/11 → 10/11 | 17/11 (còn 5 ngày) |
+| **B** | Giày chạy bộ Runa Air · shop *Runa Store* · 890.000đ | "Màu: **Xám khói (Smoke Grey)** · SKU RA-SG-42" | không đổi | 04/11 → 09/11 | 16/11 (còn 4 ngày) |
+| **C** | Áo thun basic cotton size **L** · shop *Tiệm Áo Nhà Mây* · 189.000đ | "Size L" | không đổi | 05/11 → 11/11 | 18/11 (còn 6 ngày) |
+| D | Quần jean ống suông size 29 · shop *Denim Lá* · 420.000đ | "Size 29" | không đổi | 20/10 → 23/10 | **đã hết hạn** 30/10 |
+
