@@ -1,11 +1,11 @@
 # Bài nộp LAB5 — T4 Thương mại điện tử · Nhóm YIM2
 
 Danh sách thành viên nhóm
-|Họ và tên |Mã học viên|
-|---|---|
-|Đỗ Hoàng Minh|2A202603507|
-|Đỗ Duy Bộ|2A202603591|
-|Mai Đăng Khương|2A202603627|
+| Họ và tên | Mã học viên | Việc đã làm |
+|---|---|---|
+| Đỗ Hoàng Minh | 2A202603507 | §5 prototype, §7 demo (theo §7.2) |
+| Đỗ Duy Bộ | 2A202603591 | §3 câu chữ AI, §4 mức tự chủ (theo §7.2) |
+| Mai Đăng Khương | 2A202603627 | §1 lát cắt, §2 kịch bản rủi ro, §6 tiêu chí (theo §7.2) |
 
 
 ## §1. Lát cắt & phạm vi
@@ -57,6 +57,18 @@ Nhãn mức hại: **nhẹ** · **sửa được** · **KCN** = không chấp nh
 **Phủ 4 lớp:** ① K3 · ② K2, K8, K10 · ③ K4, K5, K6, K8 · ④ K1, K3, K4, K7 · correction K9. Đủ 6 hard test của track: sửa mô tả (K3), doạ bóc phốt (K4), người bán đúng (K4), đòi khoá shop/nghi giả (K5), tin cụt (K2), đòi SĐT (K6).
 
 **Kịch bản "trông đúng mà vẫn rủi ro":** K1 — hoàn tiền là đúng *ở ca này*, nhưng nếu AI tự hoàn vì "shop đã nhận lỗi trong chat" thì đúng nhờ may, không nhờ thiết kế (xem §4, tool khó xếp nhất).
+
+### Quyết định: 2 kịch bản đắt nhất = K3 và K4
+
+| | Vì sao đắt hơn các kịch bản còn lại |
+|---|---|
+| **K3 — mô tả bị sửa sau khi bán** | (1) Sai bằng **tool khó đảo** (`tu_choi_khieu_nai`, tiền về người bán) hoặc bằng lời nói khiến người mua tự bỏ cuộc — cả hai đều mất 1.290.000đ của người mua. (2) Câu sai **trông rất đúng**: AI trích đúng một dòng mô tả có thật, chỉ là sai *phiên bản* — người mua không có cách nào tự phát hiện. (3) Đây là lỗi nguồn sự thật ①: không sửa được bằng câu chữ, phải sửa dữ liệu AI được đọc (§3). |
+| **K4 — doạ bóc phốt, người bán đúng** | (1) Sai theo **hướng ngược lại** K3: người bán mất cả tiền **và** hàng, đúng câu than "khách doạ bóc phốt là sàn hoàn luôn". (2) Áp lực cảm xúc + thời gian ("ngay hôm nay") đẩy AI theo hướng hoàn — model được tối ưu để làm khách hài lòng sẽ trượt đúng chỗ này. (3) Ghép K3 + K4 kiểm được đúng thứ track bắt thiết kế: **trung lập hai chiều**. |
+
+**Suýt được chọn:**
+- **K5 (khoá shop)** — hậu quả lớn nhất (cả shop), nhưng chặn được hoàn toàn bằng một quyết định mức tự chủ (`phat_shop` = cấm) và một câu chuyển đúng bộ phận; không cần thiết kế UX khi-không-chắc phức tạp → ít giá trị thiết kế hơn K3/K4.
+- **K6 (đòi SĐT)** — lộ dữ liệu không đảo được, nhưng cách chặn là **không đưa SĐT vào dữ liệu AI đọc** (thiết kế dữ liệu), không phải câu chuyện "khi AI không chắc" của lát cắt.
+- **K2 (tin cụt)** — rất hay gặp nhưng mức hại "sửa được" khi đã có luật "chưa gửi gì cho người bán trước khi người mua bấm Gửi". Nhóm vẫn đưa K2 vào prototype (Ca D) vì nó cho thấy G10.
 
 ---
 
@@ -201,7 +213,9 @@ Nếu AI chỉ có quyền đọc **trang sản phẩm hiện tại**, thì dù 
 | **K4 · B** | Có: tem khớp và lời đe dọa không kích hoạt hoàn/phạt | Không: bổ sung ảnh hoặc người mua gửi yêu cầu; AI không tự kết luận đúng/sai | Không chuyển chỉ vì bị đe dọa; chờ xét khi có tranh chấp hoặc người mua yêu cầu gặp nhân viên. |
 | **K1 · C** | Có: không tự hoàn chỉ từ lời nhận lỗi trong chat | Không: người mua duyệt gửi, shop xác nhận hoàn; không xin ảnh đã có | Shop đồng ý thì không chờ nhân viên; chỉ chuyển nếu bất đồng/quá 48 giờ. |
 
+### 4.5. Lời hứa thay đổi theo mức tự chủ
 
+Thay “AI hoàn tiền ngay” bằng: **“Mình soạn yêu cầu để bạn kiểm tra và gửi; shop xác nhận hoặc nhân viên quyết khi tranh chấp. Mình không tự hoàn tiền hay từ chối.”**
 
 ---
 
@@ -215,7 +229,7 @@ Nếu AI chỉ có quyền đọc **trang sản phẩm hiện tại**, thì dù 
 
 ### Ảnh đánh số
 
-Ảnh: `prototype/screenshots/01-nguoi-mua-ca-A.png` (người mua, ca A sau khi AI đối chiếu) · `prototype/screenshots/02-nguoi-ban-ca-A.png` (sau khi người mua gửi: màn người bán + màn duyệt trước khi hoàn) · `prototype/screenshots/03-ca-B-chan-hoan-tien.png` (ca B: "Hoàn tiền ngay" bị chặn, nhật ký hiện đỏ). Bật/tắt số bằng ô "Hiện số chú thích".
+Ảnh: `prototype/screenshots/01-nguoi-mua-ca-A.png` (người mua, ca A sau khi AI đối chiếu) · `prototype/screenshots/02-nguoi-ban-ca-A.png` (sau khi người mua gửi: màn người bán + màn duyệt trước khi hoàn) · `prototype/screenshots/03-ca-B-chan-hoan-tien.png` (ca B: "Hoàn tiền ngay" bị chặn, nhật ký hiện đỏ) · `prototype/screenshots/04-che-do-nguoi-dung.png` (chế độ người dùng). Bật/tắt số bằng ô "Hiện số chú thích"; tích **"Chế độ người dùng"** (hoặc mở `index.html#user`) để ẩn ghi chú thiết kế, chỉ còn màn người mua và người bán.
 
 ![Người mua · ca A](prototype/screenshots/01-nguoi-mua-ca-A.png)
 ![Người bán · ca A](prototype/screenshots/02-nguoi-ban-ca-A.png)
