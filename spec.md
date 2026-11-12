@@ -36,7 +36,7 @@ Chọn tập trung vào khiếu nại sai mô tả để kiểm soát căn cứ 
 | `tu_choi_khieu_nai` khi người mua thực sự nhận sai hàng, ví dụ AI dùng mô tả đã bị sửa | Người mua mất tiền và giữ hàng sai | Khó: khiếu nại đóng, tiền về người bán |
 | `phat_shop` chỉ vì khách đe dọa hoặc nghi ngờ hàng giả | Người bán bị trừ uy tín hoặc khóa shop oan | Khó: ảnh hưởng cả shop |
 
-Sai cả hai hướng đều có người chịu thiệt; không mặc định hoàn tiền hoặc từ chối. Phải xét mô tả lúc đặt và bằng chứng hai bên. Đây là các hậu quả chính để chốt phạm vi; §2 sẽ viết đủ kịch bản, §4 sẽ đánh giá cả 5 tool.
+Sai cả hai hướng đều có người chịu thiệt; không mặc định hoàn tiền hoặc từ chối. Phải xét mô tả lúc đặt và bằng chứng hai bên. Đây là các hậu quả chính để chốt phạm vi; §2 sẽ viết đủ kịch bản, §4 sẽ đặt mức cho cả 5 tool của đề và 3 tool nhóm thêm/tách.
 ## §2. Kịch bản rủi ro
 
 Nhãn mức hại: **nhẹ** · **sửa được** · **KCN** = không chấp nhận được.
@@ -130,7 +130,7 @@ Nhãn mức hại: **nhẹ** · **sửa được** · **KCN** = không chấp nh
 - Dòng nhỏ dưới tin: *"Lời đe doạ không được dùng làm căn cứ — cho cả hai bên."*
 - 3 nút: *Gửi thêm ảnh ánh sáng tự nhiên* · *Vẫn gửi yêu cầu để nhân viên xem* · *Thôi, mình giữ hàng*. **Không có nút "Hoàn tiền"** ở bất cứ đâu.
 
-**Người dùng làm gì tiếp:** chọn 1 trong 3. Nếu bấm "Vẫn gửi" → yêu cầu được điền sẵn với nhãn *"AI: chưa đủ căn cứ — cần nhân viên xem"* → người mua bấm Gửi. Nếu gõ tiếp "hoàn ngay cho tôi" → AI lặp lại đúng giới hạn một câu, kèm nút *Gặp nhân viên*, không thêm hứa hẹn.
+**Người dùng làm gì tiếp:** chọn 1 trong 3. Nếu bấm "Vẫn gửi" → yêu cầu được điền sẵn với nhãn *"AI: chưa đủ căn cứ — cần nhân viên xem"* → người mua bấm Gửi. Nếu gõ tiếp "hoàn ngay cho tôi" → AI nhắc lại giới hạn kèm bước tiếp: *"Mình không có quyền hoàn tiền. Nếu muốn bổ sung, bạn còn thiếu ảnh chụp giày ngoài ánh sáng tự nhiên; bạn còn 4 ngày (hạn 16/11) để gửi yêu cầu. Shop có 48 giờ phản hồi, sau đó nhân viên quyết trong 3 ngày làm việc."* Nút *Gặp nhân viên* vẫn có sẵn; không thêm hứa hẹn.
 
 **Ai được báo:**
 - **Người bán:** khi người mua bấm Gửi — thấy nội dung khiếu nại (màu), ảnh, thẻ đối chiếu có dấu *"Tem khớp mô tả lúc đặt"*, hạn 48h. **Không thấy lời doạ** (tránh leo thang, lời doạ không phải căn cứ nên không cần phản hồi).
@@ -154,7 +154,7 @@ Nhãn mức hại: **nhẹ** · **sửa được** · **KCN** = không chấp nh
 | **G11 — Giải thích vì sao** | (a) Thẻ "Đối chiếu mô tả" 2 cột lúc đặt ↔ hiện tại (K3) / lúc đặt ↔ ảnh tem (K4), dòng khác nhau tô vàng — **[3]**. (b) Mục mở ra **"Vì sao AI xếp mức này?"**: liệt kê yếu tố **+ / −** đã làm nghiêng nhận định (map *system input attributes → output*), và **what-if**: "Nếu thêm ảnh đo nước có vạch → hồ sơ đủ để shop/nhân viên xét" — chỉ nói hồ sơ đổi thế nào, **không** hứa kết quả tiền — **[4]** |
 | **G2 — Làm rõ làm tốt đến đâu** | **Độ chắc phân loại, hệ thống cư xử khác nhau theo mức** (không hiện %): *Đủ căn cứ* → điền sẵn yêu cầu ngay, không xin thêm · *Chưa đủ căn cứ* → xin đúng món còn thiếu · *Chưa rõ / ngoài thẩm quyền AI* → hỏi lại một câu hoặc chuyển người. Nhãn + "Dựa vào: …"; K4 còn nói hướng nghiêng — **[4]** |
 | **G10 — Thu hẹp phạm vi khi nghi ngờ** | K2 "hàng sai rồi, xử lý đi" → một câu hỏi + 3 thẻ đơn (N-best), chưa gửi gì cho người bán; K3 xin đúng 2 bằng chứng thay vì "gửi thêm bằng chứng" — **[2]**, **[5]** |
-| G1 — Làm rõ hệ thống làm được gì (+ Điều 11 Luật AI 134/2025) | *Capability cue là một phần của tương tác, không chỉ là câu giới thiệu:* (a) dải "Bạn đang trò chuyện với **trợ lý AI**"; (b) thẻ mở đầu **"Mình làm được / Mình không làm"** (đối chiếu mô tả lúc đặt, xin đúng bằng chứng, điền sẵn yêu cầu, chuyển nhân viên / không quyết hoàn tiền, không phạt shop, không đưa SĐT); (c) chip **"Thử nói"** hướng người mua vào kiểu tin AI xử lý tốt ("Đơn nồi chiên: dung tích không như mô tả", "Nhận sai size") — **[1]** |
+| G1 — Làm rõ hệ thống làm được gì (+ Điều 11 Luật AI 134/2025) | *Capability cue là một phần của tương tác, không chỉ là câu giới thiệu:* (a) dải "🛡 Bạn đang trò chuyện với **trợ lý AI bảo vệ quyền lợi người mua**"; (b) thẻ **"Quyền lợi của bạn được bảo vệ"** và thẻ **"Mình giúp bạn / Mình không làm"** (đối chiếu mô tả lúc đặt, xin đúng bằng chứng, điền sẵn yêu cầu, chuyển nhân viên / không quyết hoàn tiền, không phạt shop, không đưa SĐT); (c) chip **"Thử nói"** hướng người mua vào kiểu tin AI xử lý tốt ("Đơn nồi chiên: dung tích không như mô tả", "Nhận sai size") — **[1]** |
 | G9 — Sửa dễ (+ undo) | *Khi AI sai, cho sửa kết quả thay vì làm lại từ đầu:* yêu cầu điền sẵn có nút **Sửa ở từng trường** (lý do, bằng chứng, đề nghị); việc AI tự làm có **toast "Hoàn tác"** ("AI đã tự chọn đơn Nồi chiên · Hoàn tác") và "Không phải đơn này?"; *Rút yêu cầu* trước khi shop phản hồi — **[2]**, **[6]** |
 | G15 — Mời feedback chi tiết | Dưới câu trả lời đối chiếu: "AI hiểu sai chỗ nào? *Sai đơn · Sai mô tả · Sai bằng chứng*" — **[12]** |
 | PAIR Errors + Graceful Failure | Mỗi loại lỗi một đường lui: thiếu bằng chứng → checklist + "📷 Ảnh tốt nhất khi: đủ sáng, chụp thẳng, thấy rõ vạch đo / chữ trên tem"; tin không hiểu → **màn lỗi kiêm hướng dẫn** (điều đã xảy ra · AI làm được gì · hoạt động tốt nhất khi nói *đơn nào, sai chỗ nào, kèm ảnh tem*) + chip gợi ý bước tiếp; ngoài thẩm quyền → *Gặp nhân viên* với dòng "Đang kết nối với nhân viên…" rồi tin của nhân viên thật, nhân viên thấy sẵn hồ sơ (không bắt kể lại); quá hạn → *Nhờ nhân viên xem ngoại lệ* — **[5]**, **[8]** |
@@ -163,7 +163,7 @@ Nhãn mức hại: **nhẹ** · **sửa được** · **KCN** = không chấp nh
 
 Nếu AI chỉ có quyền đọc **trang sản phẩm hiện tại**, thì dù prompt có viết "hãy so với mô tả lúc đặt" bao nhiêu lần, AI **không có dữ liệu** của bản lúc đặt — nó sẽ trích dòng "lòng giỏ 5L" (có thật) một cách tự tin. Câu chữ càng lịch sự, lỗi càng khó phát hiện.
 
-**Thiết kế cứu:** thêm tool chỉ-đọc `xem_don_va_mo_ta_luc_dat` (§4) trả về **snapshot mô tả lúc đặt + diff với bản hiện tại + ngày sửa**; AI chỉ được trích mô tả từ snapshot. Trên màn hình, thẻ đối chiếu luôn ghi ngày của bản đang dùng, nên người mua, người bán và nhân viên đều tự kiểm được (PAIR: tin đúng mức). Lỗi tương tự: **AI hứa hoàn tiền** (K4) — không câu chữ nào rút lại được tiền đã đi; cứu bằng việc AI không có quyền gọi tool chuyển tiền (§4).
+**Thiết kế cứu:** thêm tool chỉ-đọc `xem_don_va_mo_ta_luc_dat` (§4) trả về **snapshot mô tả lúc đặt + diff với bản hiện tại + ngày sửa**; AI chỉ được trích mô tả từ snapshot. Trên màn hình, thẻ đối chiếu luôn ghi ngày của bản đang dùng, nên người mua, người bán và nhân viên đều tự kiểm được (PAIR: tin đúng mức). Lỗi tương tự: **AI hứa hoàn tiền** (K4) — không câu chữ nào rút lại được tiền đã đi; cứu bằng mức tự chủ: `soan_hoan_tien` **cần người duyệt** — AI không tự chạy khi chưa có shop (đồng ý) hoặc nhân viên (tranh chấp) bấm xác nhận (§4.1).
 
 ## §4. Mức tự chủ (chặng 4)
 
@@ -200,10 +200,10 @@ Nếu AI chỉ có quyền đọc **trang sản phẩm hiện tại**, thì dù 
 | Góc nhìn | Chọn | Cái giá của lựa chọn |
 |---|---|---|
 | Khương | Tự làm khi có snapshot, ảnh và shop nhận lỗi | K1 nhanh; nhưng lời chat chưa là xác nhận chuyển tiền, có thể gây hoàn sai như K4, mất 890.000đ và giày |
-| Duy | Cần người duyệt | Thêm bước xác nhận; chặn hoàn sai K4, K1 vẫn đi tiếp khi shop đồng ý |
+| Bộ | Cần người duyệt | Thêm bước xác nhận; chặn hoàn sai K4, K1 vẫn đi tiếp khi shop đồng ý |
 | Minh | Cấm trong luồng trợ lý, chuyển nhân viên riêng | Chặn AI hoàn sai nhưng K1 rõ ràng cũng phải chờ nhân viên |
 
-**Chốt: cần người duyệt**, theo lập luận của Duy; shop duyệt K1, nhân viên duyệt tranh chấp. Loại tự làm vì khó đảo khi sai; loại cấm khỏi luồng vì K1 phải chờ không cần thiết.
+**Chốt: cần người duyệt**, theo lập luận của Bộ; shop duyệt K1, nhân viên duyệt tranh chấp. Loại tự làm vì khó đảo khi sai; loại cấm khỏi luồng vì K1 phải chờ không cần thiết.
 
 ### 4.4. Thử trên 2 ca đắt nhất và 1 ca bình thường (trên giấy)
 
@@ -225,7 +225,7 @@ Thay “AI hoàn tiền ngay” bằng: **“Mình soạn yêu cầu để bạn
 - **Công cụ:** HTML/CSS/JS thuần, dựng với coding agent (Claude Code).
 - **Phần mock:** toàn bộ "AI" là kịch bản dựng sẵn theo §3 (không gọi model thật); ô "Ca lạ" dùng bộ định tuyến từ khoá đơn giản để minh hoạ AI đi đường nào. Không có lời gọi AI thật → không nhận bonus +3.
 - **2 màn hình đặt cạnh nhau:** (1) **Người mua** — khung *Trò chuyện với Shopee*; (2) **Người bán** — *Kênh người bán · Khiếu nại* (bonus track: thấy khiếu nại và hạn phản hồi). Bên phải: bảng **mức tự chủ 8 tool** (5 của đề + 3 nhóm thêm/tách) + **nhật ký tool** của ca đang chạy (mỗi lần AI gọi tool hiện mức của nó; lần bị chặn hiện đỏ).
-- **4 ca chọn được:** **A** nồi chiên — mô tả bị sửa (*ca demo bắt buộc*: mô tả đã sửa + trợ lý không chắc, hai bên thấy gì, ai quyết) · **B** giày — doạ bóc phốt, người bán đúng (có công tắc *Bỏ câu đe doạ* để chứng minh kết quả không đổi) · **C** áo L→M — ca bình thường · **D** "hàng sai rồi, xử lý đi" — tin cụt. Cộng ô **Ca lạ** gõ tự do.
+- **4 ca chọn được:** **A** nồi chiên — mô tả bị sửa (*ca demo bắt buộc*: mô tả đã sửa + trợ lý không chắc, hai bên thấy gì, ai quyết) · **B** giày — doạ bóc phốt, người bán đúng (có công tắc *Tin có câu đe doạ* để chứng minh kết quả không đổi) · **C** áo L→M — ca bình thường · **D** "hàng sai rồi, xử lý đi" — tin cụt. Cộng ô **Ca lạ** gõ tự do.
 
 ### Ảnh đánh số
 
@@ -260,7 +260,7 @@ Thay “AI hoàn tiền ngay” bằng: **“Mình soạn yêu cầu để bạn
 | **Niềm tin của người mua** | (a) "AI đứng về phía bạn, sẽ đòi tiền lại cho bạn" · (b) **"bảo vệ quyền lợi" bằng các quyền cụ thể của quy trình**: xét theo mô tả lúc đặt, nhắc hạn, tiền được sàn giữ khi đang xét, giữ kín liên hệ | **(b)** | (a) hứa kết quả tiền — vi phạm T3 (§6), và sai ở K4 khi người bán đúng: người mua bị hứa rồi thất vọng, người bán bị xử ép. (b) tạo niềm tin bằng điều hệ thống **chắc chắn làm được** cho người mua, vẫn trung lập về kết quả; màn người bán giữ câu "AI không xử thua bạn". |
 | **Việc cấm** | (a) nút xám "Hoàn tiền (không khả dụng)" · (b) **không có nút**, chỉ câu giới hạn + đường đi tiếp | **(b)** | (a) nút xám vẫn gợi ý "có thể được", làm người mua thử ép AI. |
 
-**Cách hiện không có trong mẫu giảng viên:** đặt **hai phía (người mua + người bán) cạnh nhau**, bấm bên này thấy bên kia đổi ngay — demo được "hai bên thấy gì, ai quyết"; và công tắc **"Bỏ câu đe doạ"** ở ca B để người xem tự kiểm tính trung lập.
+**Cách hiện không có trong mẫu giảng viên:** đặt **hai phía (người mua + người bán) cạnh nhau**, bấm bên này thấy bên kia đổi ngay — demo được "hai bên thấy gì, ai quyết"; và công tắc **"Tin có câu đe doạ"** ở ca B để người xem tự kiểm tính trung lập.
 
 ---
 
@@ -276,7 +276,7 @@ Ba tiêu chí dưới đây chấm **Pass/Fail**, người ngoài nhóm đọc l
 | **T2** | **Lời doạ không đổi quyết định.** | Cùng một ca, bật/tắt câu doạ → **nhãn độ chắc**, **tập nút hiển thị**, và **chuỗi tool được gọi** giống hệt nhau. Khác biệt duy nhất được phép: câu ghi nhận cảm xúc, và dòng "lời doạ không phải căn cứ". | Nhãn đổi, nút đổi, tool đổi, hoặc **xuất hiện thêm nút** khi có câu doạ. | Ca B có công tắc "Tin có câu đe doạ". Bật/tắt rồi so ba thứ: nhãn, nút, nhật ký tool. |
 | **T3** | **Mỗi lượt trả lời kết thúc bằng bước tiếp đủ 3 ý, và không có câu hứa kết quả tiền.** | Đủ **cả 3**: (a) còn thiếu gì — liệt kê **≤3 món cụ thể**, hoặc nói rõ "không thiếu gì"; (b) **còn bao nhiêu ngày** / hạn ngày nào; (c) **ai quyết** bước tiếp. Và **0 câu** hứa kết quả tiền. | Thiếu **một** trong ba ý, hoặc có **≥1 câu** hứa tiền ("sẽ được hoàn", "shop sẽ phải hoàn", "đã từ chối"). | Đếm trong transcript. Áp dụng cho **mọi lượt kết thúc** của trợ lý — **không ca nào được miễn**, kể cả lượt chỉ hỏi lại một câu (ca D). |
 
-**Vì sao T3 không có ngoại lệ.** Bản đầu của tiêu chí này định miễn cho lượt hỏi lại đơn. Nhưng nếu miễn thì người chấm phải tự phán "lượt này có kết luận không?" — hai người chấm ra hai kết quả, tiêu chí mất tính Pass/Fail. Cách đúng là **giữ tuyệt đối và sửa sản phẩm**: lượt hỏi lại vẫn nói được "mình chưa gửi gì cho shop · bạn còn 6 ngày" mà không hề lạc đề.
+**Vì sao T3 không có ngoại lệ.** Bản đầu của tiêu chí này định miễn cho lượt hỏi lại đơn. Nhưng nếu miễn thì người chấm phải tự phán "lượt này có kết luận không?" — hai người chấm ra hai kết quả, tiêu chí mất tính Pass/Fail. Cách đúng là **giữ tuyệt đối và sửa sản phẩm**: lượt hỏi lại vẫn nói được "mình chưa gửi gì cho shop · hạn gửi ghi trên từng đơn · nếu gửi, shop có 48 giờ, sau đó nhân viên quyết" mà không hề lạc đề (xem §6.3 lỗi 2).
 
 **Câu hứa tiền — định nghĩa đóng, để không tranh luận:** bất kỳ câu nào khẳng định hoặc ngụ ý **kết quả tiền** sẽ xảy ra. Được phép nói **điều kiện và ai quyết** ("sau khi bạn gửi, shop có 48 giờ; nếu không thống nhất, nhân viên quyết trong 3 ngày làm việc"). Không được nói **kết quả** ("bạn sẽ được hoàn", "shop phải hoàn cho bạn").
 
@@ -297,7 +297,7 @@ Ba tiêu chí dưới đây chấm **Pass/Fail**, người ngoài nhóm đọc l
 | Lỗi | Phát hiện thế nào | Đã sửa thế nào | Trạng thái |
 |---|---|---|---|
 | **1. Ca C — ca dễ nhất lại nói thiếu nhất.** Nhánh "đủ căn cứ" của ca C đi thẳng vào form điền sẵn, **không nói hạn còn bao nhiêu ngày, không nói ai quyết** → T3 Fail. Ngược lại, nhánh "chưa có ảnh" của cùng ca C **có** nói hạn. | Chấm T3 trên C. | Thêm 1 dòng vào nhánh đủ căn cứ: *"Còn 6 ngày (hạn 18/11) · shop 48 giờ, sau đó nhân viên quyết"*. | **Đã sửa** — yêu cầu cho bản dựng prototype |
-| **2. Ca D — lượt hỏi lại thiếu ý "ai quyết".** AI hỏi *"Bạn đang nói đơn nào?"* + 3 thẻ đơn: đúng hành vi (G10, không đoán), nhưng T3 Fail vì không nói ai quyết. | Chấm T3 trên D. | Câu hỏi thêm vế: *"Mình chưa gửi gì cho shop · bạn còn 6 ngày để gửi yêu cầu"*; thêm 1 dòng: *"sau khi gửi, shop có 48 giờ"*. | **Đã sửa** — yêu cầu cho bản dựng prototype |
+| **2. Ca D — lượt hỏi lại thiếu ý "ai quyết".** AI hỏi *"Bạn đang nói đơn nào?"* + 3 thẻ đơn: đúng hành vi (G10, không đoán), nhưng T3 Fail vì không nói ai quyết. | Chấm T3 trên D. | Không gán sẵn hạn 6 ngày khi chưa biết đơn: hiện hạn ngay trên từng thẻ (A còn 5 ngày, B còn 4 ngày, C còn 6 ngày); nói chưa thể xác định bằng chứng cần bổ sung cho tới khi biết đơn; nêu rõ nếu gửi thì shop có 48 giờ phản hồi, nếu bất đồng nhân viên quyết trong 3 ngày làm việc. | **Đã sửa** — yêu cầu cho bản dựng prototype |
 | **3. Ca D — thiếu thẻ đơn quần jean.** Màn chọn đơn chỉ render 3 đơn A/B/C. Người mua nói "hàng sai rồi" mà ý là **cái quần** (đơn D, đã quá hạn) thì không bấm được thẻ nào; phải gõ tay vào ô ca lạ mới ra đường "quá hạn". | Bấm thử ca D, tìm đơn quần. | Thêm 1 dòng dưới 3 thẻ: *"Đơn đã quá hạn gửi yêu cầu không hiện ở đây — nhắn mình nếu bạn muốn xem."* | **Đã sửa một phần** — người mua vẫn phải gõ lại, nhưng không còn bí |
 
 **Bài học của chặng này:** lỗi 1 và 2 là lỗi **của nhóm, sửa được trong 10 phút**, và chúng chỉ lộ ra khi chấm ca dễ. Nếu chỉ chấm 2 ca đắt nhất như rubric yêu cầu thì bài nộp vẫn "đủ điểm" mà sản phẩm vẫn hở. Đây là lý do nhóm chấm thêm C và D.
@@ -323,16 +323,20 @@ Ba tiêu chí dưới đây chấm **Pass/Fail**, người ngoài nhóm đọc l
 | 0:00–0:30 | Khương | Lát cắt + hậu quả hai chiều: hoàn sai thì shop mất tiền và hàng; từ chối sai thì người mua mất tiền|
 | 0:30–2:30 | Khương | **Ca bắt buộc A** (mô tả bị sửa 08/11) từ đầu đến cuối: AI đối chiếu snapshot → 2 bằng chứng còn thiếu → người mua Gửi → **người bán thấy gì** |
 | 2:30–3:10 | Minh | Một mức tự chủ bằng câu "sai thì ai mất gì?": `soan_hoan_tien` cần người duyệt → shop bấm xác nhận, không ai tự hoàn | 
-| 3:10–3:35 | Duy | Ca B: bật/tắt "Bỏ câu đe doạ" → nhãn, nút, nhật ký tool **không đổi**; "Hoàn tiền ngay cho tôi" bị chặn đỏ | Công tắc ca B · **[11]** |
-| 3:35–4:00 | Duy | Chỉ vị trí HAX: G11 (thẻ 2 cột + "Vì sao AI xếp mức này?"), G2 (3 nhãn), G10 (checklist 2 món), G9 (nút Sửa / Hoàn tác) |
+| 3:10–3:35 | Bộ | Ca B: bật/tắt "Tin có câu đe doạ" → nhãn, nút, nhật ký tool **không đổi**; "Hoàn tiền ngay cho tôi" bị chặn đỏ (công tắc ca B · **[11]**) |
+| 3:35–4:00 | Bộ | Chỉ vị trí HAX: G11 (thẻ 2 cột + "Vì sao AI xếp mức này?"), G2 (3 nhãn), G10 (checklist 2 món), G9 (nút Sửa / Hoàn tác) |
 
 ### 7.2 Phân công
 
 | Thành viên | Thuyết trình phần |
 |---|---|
 | Khương | §1, §2, §6 — lát cắt, ca rủi ro, tiêu chí | 
-| Duy | §3, §4 — câu chữ AI, mức tự chủ |
+| Bộ | §3, §4 — câu chữ AI, mức tự chủ |
 | Minh | §5, §7 — prototype, demo |
+
+### 7.3 Ca lạ nhận được ở demo
+
+____ *(điền sau buổi demo: ca gì · prototype đã làm gì · nhóm có đổi ý gì không)*
 
 ---
 

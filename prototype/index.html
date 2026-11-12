@@ -406,7 +406,7 @@ function keepB(){me('Thôi, mình giữ hàng');ai(`<p>Mình ghi nhận, không 
 async function refundNow(){
  me('Hoàn tiền ngay cho tôi');await think();
  log('soan_hoan_tien','hold','AI không tự chạy — cần shop (đồng ý) hoặc nhân viên (tranh chấp) duyệt');
- ai(`${badge('no','Ngoài thẩm quyền AI','')}<p>Mình không có quyền hoàn tiền — chỉ shop (nếu đồng ý) hoặc nhân viên Shopee quyết. Cách nhanh nhất là gửi yêu cầu để shop phản hồi trong 48 giờ.</p><div class="btns"><button class="btn pri" onclick="formFor('${S.order||'B'}')">Gửi yêu cầu</button><button class="btn out" onclick="handoff()">Gặp nhân viên</button></div>`);
+ ai(`${badge('no','Ngoài thẩm quyền AI','')}<p>Mình không có quyền hoàn tiền — chỉ shop (nếu đồng ý) hoặc nhân viên Shopee quyết.</p><p>Nếu muốn bổ sung, bạn còn thiếu <b>ảnh chụp giày ngoài ánh sáng tự nhiên</b>; bạn còn <b>4 ngày</b> (hạn 16/11) để gửi yêu cầu. Shop có <b>48 giờ</b> phản hồi, sau đó nhân viên quyết trong 3 ngày làm việc.</p><div class="btns"><button class="btn pri" onclick="formFor('${S.order||'B'}')">Gửi yêu cầu</button><button class="btn out" onclick="handoff()">Gặp nhân viên</button></div>`);
 }
 
 /* ---------- ca C ---------- */
@@ -432,7 +432,7 @@ function askOrder(basis){
  ai(`${badge('unk','Chưa rõ',basis)}${N(2)}<p>Bạn đang nói đơn nào? <span class="sm">(Mình chưa gửi gì cho shop nào.)</span></p>
  ${orderCard(ORD.A,"pickOrder('A')")}${orderCard(ORD.B,"pickOrder('B')")}${orderCard(ORD.C,"pickOrder('C')")}
  <div class="sm">Đơn đã quá hạn gửi yêu cầu không hiện ở đây — nhắn mình nếu bạn muốn xem.</div>
- <p class="sm">Hạn gửi yêu cầu ghi trên từng đơn (còn 4–6 ngày). Sau khi bạn gửi, shop có <b>48 giờ</b> phản hồi; nếu không thống nhất, nhân viên Shopee quyết.</p>`);
+ <p class="sm">Hạn gửi yêu cầu ghi trên từng đơn (A còn 5 ngày, B còn 4 ngày, C còn 6 ngày). Mình chưa thể biết cần bổ sung bằng chứng gì cho tới khi biết đơn. Nếu bạn gửi, shop có <b>48 giờ</b> phản hồi; nếu không thống nhất, nhân viên Shopee quyết trong 3 ngày làm việc.</p>`);
 }
 function notThis(){askOrder('bạn báo AI chọn chưa đúng đơn — đổi miễn phí vì chưa gửi gì cho shop')}
 async function pickOrder(c){
@@ -552,7 +552,7 @@ function fakeFree(){
 }
 function refundNow2(){
  log('soan_hoan_tien','hold','AI không tự chạy — cần shop (đồng ý) hoặc nhân viên (tranh chấp) duyệt');
- ai(`${badge('no','Ngoài thẩm quyền AI','')}<p>Mình không có quyền hoàn tiền — chỉ shop (nếu đồng ý) hoặc nhân viên Shopee quyết. Mình giúp bạn gửi yêu cầu để shop phản hồi trong 48 giờ.</p><div class="btns"><button class="btn pri" onclick="askOrder('chọn đơn để gửi yêu cầu')">Chọn đơn</button><button class="btn out" onclick="handoff()">Gặp nhân viên</button></div>`);
+ ai(`${badge('no','Ngoài thẩm quyền AI','')}<p>Mình không có quyền hoàn tiền — chỉ shop (nếu đồng ý) hoặc nhân viên Shopee quyết. Bạn chọn đơn để mình xem còn thiếu gì; hạn gửi ghi trên từng đơn. Sau khi gửi, shop có <b>48 giờ</b> phản hồi, sau đó nhân viên quyết trong 3 ngày làm việc.</p><div class="btns"><button class="btn pri" onclick="askOrder('chọn đơn để gửi yêu cầu')">Chọn đơn</button><button class="btn out" onclick="handoff()">Gặp nhân viên</button></div>`);
 }
 
 /* ---------- màn người bán ---------- */
