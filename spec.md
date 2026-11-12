@@ -202,6 +202,48 @@ Thay “AI hoàn tiền ngay” bằng: **“Mình soạn yêu cầu để bạn
 
 ---
 
+## §5. Prototype (chặng 5)
+
+- **File:** [`prototype/index.html`](prototype/index.html) — một file HTML, mở bằng trình duyệt, không cần mạng. Hướng dẫn bấm + ảnh đánh số: [`prototype/README.md`](prototype/README.md).
+- **Công cụ:** HTML/CSS/JS thuần, dựng với coding agent (Claude Code).
+- **Phần mock:** toàn bộ "AI" là kịch bản dựng sẵn theo §3 (không gọi model thật); ô "Ca lạ" dùng bộ định tuyến từ khoá đơn giản để minh hoạ AI đi đường nào. Không có lời gọi AI thật → không nhận bonus +3.
+- **2 màn hình đặt cạnh nhau:** (1) **Người mua** — khung *Trò chuyện với Shopee*; (2) **Người bán** — *Kênh người bán · Khiếu nại* (bonus track: thấy khiếu nại và hạn phản hồi). Bên phải: bảng **mức tự chủ 8 tool** (5 của đề + 3 nhóm thêm/tách) + **nhật ký tool** của ca đang chạy (mỗi lần AI gọi tool hiện mức của nó; lần bị chặn hiện đỏ).
+- **4 ca chọn được:** **A** nồi chiên — mô tả bị sửa (*ca demo bắt buộc*: mô tả đã sửa + trợ lý không chắc, hai bên thấy gì, ai quyết) · **B** giày — doạ bóc phốt, người bán đúng (có công tắc *Bỏ câu đe doạ* để chứng minh kết quả không đổi) · **C** áo L→M — ca bình thường · **D** "hàng sai rồi, xử lý đi" — tin cụt. Cộng ô **Ca lạ** gõ tự do.
+
+### Ảnh đánh số
+
+Ảnh: `prototype/screenshots/01-nguoi-mua-ca-A.png` (người mua, ca A sau khi AI đối chiếu) · `prototype/screenshots/02-nguoi-ban-ca-A.png` (sau khi người mua gửi: màn người bán + màn duyệt trước khi hoàn) · `prototype/screenshots/03-ca-B-chan-hoan-tien.png` (ca B: "Hoàn tiền ngay" bị chặn, nhật ký hiện đỏ). Bật/tắt số bằng ô "Hiện số chú thích".
+
+![Người mua · ca A](prototype/screenshots/01-nguoi-mua-ca-A.png)
+![Người bán · ca A](prototype/screenshots/02-nguoi-ban-ca-A.png)
+
+| Số | Thể hiện gì | Nguyên tắc | Mức tự chủ |
+|---|---|---|---|
+| **1** | Dải "🛡 Bạn đang trò chuyện với trợ lý AI bảo vệ quyền lợi người mua" + thẻ **"Quyền lợi của bạn được bảo vệ"** (xét theo mô tả lúc đặt · nhắc hạn · tiền được sàn giữ khi đang xét · SĐT/địa chỉ được ẩn) + thẻ "Mình giúp bạn / Mình không làm" + chip "Thử nói" | G1 (capability cue) · PAIR Trust · lời hứa §4.5 | — |
+| **2** | Thẻ đơn AI tự chọn + "Không phải đơn này?" + toast "AI đã tự chọn đơn · **Hoàn tác**" (ca D: một câu hỏi + 3 thẻ đơn) | G10 · G9 | `xem_don…` tự làm **có hoàn tác** |
+| **3** | Thẻ đối chiếu *Lúc đặt (dùng để xét)* ↔ *Hiện tại (đã sửa, không dùng)*, dòng khác tô vàng | **G11** · PAIR Explainability | `xem_don_va_mo_ta_luc_dat` tự làm |
+| **4** | Nhãn độ chắc phân loại *Chưa đủ căn cứ* + "Dựa vào: …" + mục mở "Vì sao AI xếp mức này?" (yếu tố +/−, what-if) | **G2** · **G11** | — |
+| **5** | Checklist đúng 2 bằng chứng còn thiếu, tích xanh khi đủ; hạn "còn 5 ngày" | **G10** · PAIR Graceful failure | `yeu_cau_bang_chung` tự làm (người mua) |
+| **6** | Yêu cầu điền sẵn: nút **Gửi** (người mua bấm) + **Sửa**; sau gửi có **Rút yêu cầu** | G9 | `soan_yeu_cau_tra_hang` tự làm · `gui_yeu_cau_tra_hang` **cần người mua duyệt** |
+| **7** | Dòng thời gian: Đã gửi → Shop phản hồi (hạn 14/11 15:20) → Nhân viên quyết nếu không thống nhất | G1 · PAIR Explainability | — |
+| **8** | Nút *Gặp nhân viên ngay* → thẻ "Đã chuyển trưởng nhóm" kèm **tóm tắt hồ sơ nhân viên sẽ thấy** (chuyển giao nhẹ nhàng, đủ thông tin để tiếp quản, không bắt kể lại) + *Quay lại trợ lý* | PAIR Graceful failure · G8 | `chuyen_truong_nhom` tự làm + hoàn tác |
+| **9** | Màn người bán: hạn phản hồi đếm ngược, **cùng bảng đối chiếu người mua thấy** (lúc đặt ↔ hiện tại / ảnh tem — hai bên nhìn chung một căn cứ), cờ "Mô tả đã sửa sau đơn — xét theo bản lúc đặt", liên hệ người mua bị ẩn | G11 (cho người bán) · rubric riêng #3, #6 | — |
+| **10** | Màn duyệt của người bán "Chờ bạn duyệt · Kiểm tra lại trước khi hoàn tiền": đơn, số tiền, khi nào, căn cứ, cảnh báo "không đảo lại được"; nút *Đổi lựa chọn* / *Xác nhận đồng ý hoàn* | Duyệt trước khi đi tiếp (việc liên quan tiền) | `soan_hoan_tien` **cần người duyệt** (shop khi đồng ý · nhân viên khi tranh chấp) |
+| **11** | Bảng mức tự chủ + nhật ký tool; lần bị chặn (ca B bấm "Hoàn tiền ngay cho tôi") hiện đỏ "`soan_hoan_tien` — chặn · cần người duyệt" | G1 | `phat_shop` **cấm**; `tu_choi_khieu_nai` **chỉ nhân viên duyệt** — AI và người mua không có nút |
+| **12** | "AI hiểu sai chỗ nào? Sai đơn · Sai mô tả · Sai bằng chứng" | G15 | — |
+
+### Quyết định cách hiện
+
+| Cần hiện | Đã cân nhắc | Chọn | Vì sao loại cách kia |
+|---|---|---|---|
+| **Độ chắc** | (a) số "72%" · (b) trực quan hoá thanh xác suất · (c) N-best "bạn muốn nói đơn nào?" · (d) **phân loại 3 mức, mỗi mức một hành vi khác** | **(d)** cho nhận định đúng/sai mô tả; **(c)** chỉ dùng khi chưa rõ đơn (ca D) | (a) *precision giả*: người mua đọc 72% là "chắc được hoàn", người bán đọc là "AI nghiêng về khách"; người dùng phổ thông không biết 72 là cao hay thấp, và nhóm không hiệu chỉnh được con số. (b) dành cho chuyên gia đọc biểu đồ, không phải người mua. Người dùng không cần biết 0,71 hay 0,84 — họ cần thấy **hệ thống xử lý khác nhau** ở mỗi mức: đủ → điền sẵn; chưa đủ → xin đúng món; chưa rõ → hỏi một câu / chuyển người. |
+| **Vì sao** | (a) một câu "do thiếu bằng chứng" · (b) **yếu tố +/− và what-if** | **(b)** | (a) không cho người dùng biết làm gì để đổi kết quả. What-if trả lời đúng câu than "không ai nói tôi còn thiếu cái gì" — nhưng chỉ nói hồ sơ sẽ đổi thế nào, không hứa tiền. |
+| **Bằng chứng** | (a) trích một câu mô tả trong lời AI · (b) link "xem trang sản phẩm" · (c) **thẻ đối chiếu 2 cột có ngày phiên bản** | **(c)** | (a) không cho thấy phiên bản → đúng lỗi K3. (b) link tới trang *hiện tại* — chính là bản đã sửa. Thẻ 2 cột làm lỗi K3 lộ ra cho cả 3 bên. |
+| **Mức tự chủ "cần duyệt"** | (a) AI hỏi "bạn có muốn hoàn tiền không?" trong chat · (b) **nút xác nhận ở đúng người chịu tiền** (người bán) | **(b)** | (a) để người mua "duyệt" việc hoàn tiền cho chính mình là vô nghĩa — người duyệt phải là bên chịu thiệt. |
+| **Niềm tin của người mua** | (a) "AI đứng về phía bạn, sẽ đòi tiền lại cho bạn" · (b) **"bảo vệ quyền lợi" bằng các quyền cụ thể của quy trình**: xét theo mô tả lúc đặt, nhắc hạn, tiền được sàn giữ khi đang xét, giữ kín liên hệ | **(b)** | (a) hứa kết quả tiền — vi phạm T3 (§6), và sai ở K4 khi người bán đúng: người mua bị hứa rồi thất vọng, người bán bị xử ép. (b) tạo niềm tin bằng điều hệ thống **chắc chắn làm được** cho người mua, vẫn trung lập về kết quả; màn người bán giữ câu "AI không xử thua bạn". |
+| **Việc cấm** | (a) nút xám "Hoàn tiền (không khả dụng)" · (b) **không có nút**, chỉ câu giới hạn + đường đi tiếp | **(b)** | (a) nút xám vẫn gợi ý "có thể được", làm người mua thử ép AI. |
+
+**Cách hiện không có trong mẫu giảng viên:** đặt **hai phía (người mua + người bán) cạnh nhau**, bấm bên này thấy bên kia đổi ngay — demo được "hai bên thấy gì, ai quyết"; và công tắc **"Bỏ câu đe doạ"** ở ca B để người xem tự kiểm tính trung lập.
 ## Phụ lục — Dữ liệu dựng dùng trong bài
 
 **Ghi chú dữ liệu.** Toàn bộ đơn hàng, shop, người mua, ngày giờ trong bài là **dữ liệu dựng**. "Hôm nay" trong kịch bản = **12/11/2026, 15:20**. Nhóm dùng **chính sách dựng** sau (khác chính sách thật 15 ngày của Shopee, đúng như track lưu ý):
