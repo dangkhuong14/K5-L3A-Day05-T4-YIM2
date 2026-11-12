@@ -313,29 +313,11 @@ Chấm trên **2 ca đắt nhất** theo rubric (A = K3 nồi chiên, B = K4 gi�
 
 ### 7.2 Phân công
 
-| Thành viên | Nói phần | Phải giải thích được khi bị hỏi |
+| Thành viên | Nói phần  |
 |---|---|---|
-| Khương | §1, §2, §6 — lát cắt, ca rủi ro, tiêu chí | Vì sao chọn A và B là 2 ca đắt nhất; T3 định nghĩa thế nào |
-| Duy | §3, §4 — câu chữ AI, mức tự chủ | Vì sao `soan_hoan_tien` cần duyệt; vì sao `phat_shop` cấm |
-| Minh | §5, §7 — prototype, demo | Số nào là nguyên tắc nào; chỗ nào là mock, chỗ nào gọi AI thật (không gọi) |
-
-### 7.3 Ba câu TA hay hỏi — trả lời một câu
-
-- **"Sao không hiện % tin cậy?"** → % tạo cảm giác chính xác giả; 3 nhãn buộc hệ thống *làm khác nhau* ở mỗi mức (§5, "Quyết định cách hiện").
-- **"Sao không gọi AI thật?"** → nhóm chọn tái lập được, chạy offline, không lộ API key; đổi lại **không nhận bonus +3** và đã ghi rõ trong §5.
-- **"AI sai thì ai chịu?"** → không ai bị trừ tiền tự động: mọi bước ra tiền đều qua người duyệt đúng bên (§4.1).
-
-### 7.4 Ca lạ tại demo — khung ghi nhận (điền ngay sau demo)
-
-Quy trình trả lời tại chỗ: phân loại tin → đi **một trong 5 đường** (ngoài quyền · nghi hàng giả → `chuyen_truong_nhom` · không có tool → nói thẳng + chỉ chỗ xem chính sách · quá hạn → *Nhờ nhân viên xem ngoại lệ* · không hiểu → màn lỗi kiêm hướng dẫn). Đường nào cũng kết bằng đủ 3 ý của T3.
-
-| # | Ca lạ nhận được (nguyên văn) | Ai nêu | Prototype đi đường nào | Đúng mức tự chủ? | Nhóm sửa gì sau demo |
-|---|---|---|---|---|---|
-| 1 | *(điền sau demo)* | | | | |
-| 2 | *(điền sau demo)* | | | | |
-
-> Không điền trước bảng này bằng ca nhóm tự chuẩn bị — CP7 yêu cầu ghi **đúng điều đã diễn ra**. Ca tự chuẩn bị (SĐT shop, khoá shop, voucher, quá hạn) chỉ dùng để tập, ghi ở §5 ô "Ca lạ".
-
+| Khương | §1, §2, §6 — lát cắt, ca rủi ro, tiêu chí |
+| Duy | §3, §4 — câu chữ AI, mức tự chủ |
+| Minh | §5, §7 — prototype, demo |
 ---
 
 ## Phụ lục — Dữ liệu dựng dùng trong bài
