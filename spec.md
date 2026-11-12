@@ -318,18 +318,18 @@ Ba tiêu chí dưới đây chấm **Pass/Fail**, người ngoài nhóm đọc l
 
 ### 7.1 Kịch bản 4 phút
 
-| Phút | Ai | Nội dung | Bấm / chỉ vào đâu |
-|---|---|---|---|
-| 0:00–0:30 | Khương | Lát cắt + hậu quả hai chiều: hoàn sai thì shop mất tiền và hàng; từ chối sai thì người mua mất tiền | Thẻ "Mình giúp bạn / Mình không làm" — **[1]** |
-| 0:30–2:30 | Khương | **Ca bắt buộc A** (mô tả bị sửa 08/11) từ đầu đến cuối: AI đối chiếu snapshot → 2 bằng chứng còn thiếu → người mua Gửi → **người bán thấy gì** | Số **[3] [4] [5] [6]**, rồi chuyển sang panel người bán — **[9] [10]** |
-| 2:30–3:10 | Minh | Một mức tự chủ bằng câu "sai thì ai mất gì?": `soan_hoan_tien` cần người duyệt → shop bấm xác nhận, không ai tự hoàn | **[10] [11]** |
+| Phút | Ai | Nội dung |
+|---|---|---|
+| 0:00–0:30 | Khương | Lát cắt + hậu quả hai chiều: hoàn sai thì shop mất tiền và hàng; từ chối sai thì người mua mất tiền|
+| 0:30–2:30 | Khương | **Ca bắt buộc A** (mô tả bị sửa 08/11) từ đầu đến cuối: AI đối chiếu snapshot → 2 bằng chứng còn thiếu → người mua Gửi → **người bán thấy gì** |
+| 2:30–3:10 | Minh | Một mức tự chủ bằng câu "sai thì ai mất gì?": `soan_hoan_tien` cần người duyệt → shop bấm xác nhận, không ai tự hoàn | 
 | 3:10–3:35 | Duy | Ca B: bật/tắt "Bỏ câu đe doạ" → nhãn, nút, nhật ký tool **không đổi**; "Hoàn tiền ngay cho tôi" bị chặn đỏ | Công tắc ca B · **[11]** |
-| 3:35–4:00 | Duy | Chỉ vị trí HAX: G11 (thẻ 2 cột + "Vì sao AI xếp mức này?"), G2 (3 nhãn), G10 (checklist 2 món), G9 (nút Sửa / Hoàn tác) | **[3] [4] [5] [2]** |
+| 3:35–4:00 | Duy | Chỉ vị trí HAX: G11 (thẻ 2 cột + "Vì sao AI xếp mức này?"), G2 (3 nhãn), G10 (checklist 2 món), G9 (nút Sửa / Hoàn tác) |
 
 ### 7.2 Phân công
 
-| Thành viên | Nói phần |  |
-|---|---|---|
+| Thành viên | Thuyết trình phần |
+|---|---|
 | Khương | §1, §2, §6 — lát cắt, ca rủi ro, tiêu chí | 
 | Duy | §3, §4 — câu chữ AI, mức tự chủ |
 | Minh | §5, §7 — prototype, demo |
