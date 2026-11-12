@@ -51,3 +51,99 @@ Nhãn mức hại: **nhẹ** · **sửa được** · **KCN** = không chấp nh
 **Phủ 4 lớp:** ① K3 · ② K2, K8, K10 · ③ K4, K5, K6, K8 · ④ K1, K3, K4, K7 · correction K9. Đủ 6 hard test của track: sửa mô tả (K3), doạ bóc phốt (K4), người bán đúng (K4), đòi khoá shop/nghi giả (K5), tin cụt (K2), đòi SĐT (K6).
 
 **Kịch bản "trông đúng mà vẫn rủi ro":** K1 — hoàn tiền là đúng *ở ca này*, nhưng nếu AI tự hoàn vì "shop đã nhận lỗi trong chat" thì đúng nhờ may, không nhờ thiết kế (xem §4, tool khó xếp nhất).
+
+---
+
+
+## §3. Khi AI sai (chặng 3)
+
+### K3 — Nồi chiên: mô tả đã bị sửa sau khi bán
+
+Đường trải nghiệm: **failure/không căn cứ (①) + low-confidence (②)**.
+
+**AI nói (nguyên văn):**
+
+> Mình đã đối chiếu với **mô tả lúc bạn đặt hàng (03/11)**: mục Dung tích ghi **"6L"**, không nói 6L là dung tích tổng hay lòng nồi.
+> Lưu ý: shop **đã sửa mô tả ngày 08/11** (sau khi bạn đặt) thành "tổng 6L · lòng giỏ 5L". Khiếu nại của bạn được xét theo **bản lúc đặt**, không theo bản đã sửa.
+> Vì "6L" hiểu được hai cách, hiện mình **chưa đủ căn cứ** để nói hàng đúng hay sai mô tả. Để hồ sơ đủ, bạn gửi giúp mình **2 thứ**:
+> 1. Ảnh hoặc video đổ nước đo lòng nồi bằng ca có vạch;
+> 2. Ảnh tem thông số dán dưới đáy máy.
+>
+> Bạn còn **5 ngày** để gửi yêu cầu (hạn **17/11**). Mình **không tự quyết** hoàn tiền hay từ chối: sau khi bạn gửi, shop có 48 giờ phản hồi; nếu hai bên không thống nhất, nhân viên Shopee quyết trong 3 ngày làm việc.
+
+**Người dùng thấy gì (ngoài câu chữ):**
+- Thẻ **"Đối chiếu mô tả"** 2 cột: *Lúc đặt 03/11 — dùng để xét* ↔ *Hiện tại, sửa 08/11 — không dùng để xét*; dòng "Dung tích" tô vàng vì khác nhau.
+- Nhãn độ chắc **"Chưa đủ căn cứ"** (màu vàng) + dòng "Dựa vào: mô tả lúc đặt · tin nhắn của bạn · chưa có ảnh".
+- Checklist bằng chứng: 2 ô, mỗi ô có nút tải ảnh; ô nào đủ thì tích xanh.
+- Đồng hồ hạn: "Còn 5 ngày · hạn 17/11".
+- Nút: *Tải ảnh* · *Gặp nhân viên ngay* · chip *"Nhưng trang hiện tại ghi lòng 5L mà?"*.
+
+**Người dùng làm gì tiếp:** tải 2 ảnh → AI điền sẵn yêu cầu (lý do, bản mô tả đối chiếu, 2 ảnh, số tiền) → **người mua xem và bấm Gửi** (hoặc Sửa). Nếu người mua **không làm gì**: không có gì tự động xảy ra; trước hạn 1 ngày (16/11) nhắc một lần trong chat "còn 1 ngày để gửi yêu cầu"; quá hạn thì luồng đóng — không ai bị trừ tiền.
+
+**Ai được báo, sau bao lâu:**
+- **Người bán:** chỉ khi người mua bấm Gửi → ngay lập tức, thấy khiếu nại, 2 ảnh, thẻ đối chiếu (có cờ *"Mô tả đã sửa sau đơn — khiếu nại xét theo bản lúc đặt"*), hạn phản hồi 48h (14/11 15:20). Không thấy SĐT/địa chỉ người mua.
+- **Trưởng nhóm:** khi người bán bấm *Không đồng ý*, hoặc hết 48h người bán im lặng → hồ sơ tự chuyển (`chuyen_truong_nhom`), có sẵn tóm tắt 2 phía + cờ "sửa mô tả sau bán" (để bộ phận chất lượng nội dung xem, **không phải** để phạt).
+
+**Quyết định: hỏi lại / trả lời kèm giới hạn / dừng và chuyển người**
+
+| Phương án | Chọn? | Vì sao |
+|---|---|---|
+| Hỏi lại một câu ("bạn đo thế nào?") | Loại | Một câu hỏi không làm hồ sơ đủ: dù người mua trả lời gì, AI vẫn không có bằng chứng để người bán/nhân viên xét. Thêm một lượt hỏi = đúng câu than "cứ bị hỏi lại". |
+| **Trả lời kèm giới hạn + xin đúng bằng chứng còn thiếu + điền sẵn yêu cầu** | **Chọn** | Người mua biết ngay: căn cứ đang là gì, thiếu đúng 2 thứ gì, còn bao lâu, ai quyết. Hồ sơ tới tay người bán/nhân viên đã đủ để xét lần đầu — giảm vòng lặp cho cả 3 bên. |
+| Dừng và chuyển nhân viên ngay | Loại (giữ làm nút phụ) | Nhân viên nhận hồ sơ trống, vẫn phải xin ảnh → người mua chờ thêm ~1 ngày mà không biết thiếu gì. Vẫn giữ nút *Gặp nhân viên ngay* cho ai muốn. |
+
+**Loại lỗi:** cái sai ở §2 (AI đọc mô tả hiện tại) là **lỗi hệ thống** — hệ thống đưa sai phiên bản dữ liệu cho AI. Còn chuyện "6L" hiểu được hai cách là **lỗi ngữ cảnh**: hệ thống chạy đúng (đọc đúng snapshot) nhưng mô tả lúc đặt không đủ rõ cho tình huống này.
+- Với lỗi hệ thống (nếu lỡ xảy ra và người mua sửa AI qua chip "Nhưng trang hiện tại ghi lòng 5L mà?"): AI **nhận lỗi về phía mình**, nói rõ bản nào được dùng — "Mình xin lỗi đã làm bạn nhầm: trang hiện tại đã được sửa sau đơn của bạn; bản dùng để xét là bản lúc đặt, ghi 6L." Sửa bằng **thiết kế** (tool snapshot), không chỉ câu chữ.
+- Với lỗi ngữ cảnh: **không xin lỗi như thể AI sai**, không đổ cho người mua; nói thẳng căn cứ mơ hồ và đưa cho người có thẩm quyền quyết. Sửa thiết kế ở tầng sản phẩm: cờ "sửa mô tả sau bán" gửi cho đội chất lượng nội dung (đề xuất: bắt buộc ghi "dung tích tổng / lòng nồi" cho ngành hàng gia dụng).
+
+### K4 — Giày: doạ bóc phốt, người bán đúng
+
+Đường trải nghiệm: **low-confidence + áp lực/ngoài thẩm quyền (③)**. Người mua đòi một việc AI không được làm (hoàn ngay), kèm lời doạ.
+
+**AI nói (nguyên văn):**
+
+> Mình hiểu bạn đang bực vì màu giày khác với bạn nghĩ. Mình nói rõ cách xử lý để bạn yên tâm: hồ sơ được xét **theo bằng chứng, giống nhau cho bạn và cho shop** — việc bạn đăng bài hay không là quyền của bạn, và không làm thay đổi cách xét.
+> Đối chiếu ban đầu: **mô tả lúc đặt (04/11)** ghi màu **"Xám khói (Smoke Grey) · mã RA-SG-42"**; ảnh tem hộp bạn gửi ghi **"Smoke Grey · RA-SG-42"** — khớp. Màu trong ảnh chụp trong nhà có thể lệch so với thực tế.
+> Vì vậy hiện mình **chưa đủ căn cứ** để nói giày sai mô tả, và **mình không có quyền hoàn tiền** — kể cả hôm nay.
+> Bạn có thể: (1) gửi thêm ảnh chụp giày **ngoài ánh sáng tự nhiên, đặt cạnh ảnh sản phẩm trên trang**; hoặc (2) vẫn gửi yêu cầu để **nhân viên Shopee xem** — shop có 48 giờ phản hồi, nhân viên quyết trong 3 ngày làm việc. Bạn còn **4 ngày** để gửi (hạn 16/11).
+
+**Người dùng thấy gì:**
+- Thẻ đối chiếu: *Mô tả lúc đặt* "Smoke Grey · RA-SG-42" ↔ *Ảnh tem bạn gửi* "Smoke Grey · RA-SG-42" → dấu **khớp**; dòng "Màu thực tế" ghi *"chưa xác định — ảnh trong nhà"*.
+- Nhãn độ chắc **"Chưa đủ căn cứ · bằng chứng hiện có nghiêng về khớp mô tả"** — nói cả hướng nghiêng để người mua không bị bất ngờ nếu kết quả không như ý (G2: tin đúng mức).
+- Dòng nhỏ dưới tin: *"Lời đe doạ không được dùng làm căn cứ — cho cả hai bên."*
+- 3 nút: *Gửi thêm ảnh ánh sáng tự nhiên* · *Vẫn gửi yêu cầu để nhân viên xem* · *Thôi, mình giữ hàng*. **Không có nút "Hoàn tiền"** ở bất cứ đâu.
+
+**Người dùng làm gì tiếp:** chọn 1 trong 3. Nếu bấm "Vẫn gửi" → yêu cầu được điền sẵn với nhãn *"AI: chưa đủ căn cứ — cần nhân viên xem"* → người mua bấm Gửi. Nếu gõ tiếp "hoàn ngay cho tôi" → AI lặp lại đúng giới hạn một câu, kèm nút *Gặp nhân viên*, không thêm hứa hẹn.
+
+**Ai được báo:**
+- **Người bán:** khi người mua bấm Gửi — thấy nội dung khiếu nại (màu), ảnh, thẻ đối chiếu có dấu *"Tem khớp mô tả lúc đặt"*, hạn 48h. **Không thấy lời doạ** (tránh leo thang, lời doạ không phải căn cứ nên không cần phản hồi).
+- **Trưởng nhóm:** nếu người bán không đồng ý / quá 48h — thấy toàn bộ transcript, lời doạ được gắn nhãn *"đe doạ — không dùng làm căn cứ"*.
+
+**Quyết định:**
+
+| Phương án | Chọn? | Vì sao |
+|---|---|---|
+| Xoa dịu bằng cách hoàn ngay | Loại | Chính là lỗi K4: người bán mất tiền + hàng khi họ đúng; dạy người dùng rằng doạ là có tác dụng. |
+| Từ chối thẳng "hàng đúng mô tả" | Loại | AI không đủ căn cứ để kết luận *đúng* mô tả (màu là cảm nhận, ảnh có thể lệch); từ chối cứng = sai theo hướng ngược lại, và người mua sẽ thật sự đi bóc phốt. |
+| Chuyển nhân viên ngay, không giải thích | Loại | Người mua không biết vì sao và chờ bao lâu → càng giận; nhân viên nhận hồ sơ không có đối chiếu. |
+| **Trả lời kèm giới hạn: nói rõ hướng nghiêng của bằng chứng, nói rõ AI không có quyền hoàn, mở cả hai đường (bổ sung ảnh / để nhân viên xem)** | **Chọn** | Trung lập hai chiều: người bán không bị xử thua; người mua vẫn có đường đi tiếp rõ ràng, không bị "đóng cửa". |
+
+**Loại lỗi:** cái người mua thấy (giày "xanh rêu") là **lỗi ngữ cảnh** — mô tả đúng, sản phẩm đúng, nhưng cảm nhận màu trong điều kiện ánh sáng khác. Vì vậy AI **không nói người mua sai** ("bạn nhìn nhầm"), cũng không xin lỗi thay shop; chỉ nói điều kiện chụp có thể làm lệch màu và đưa cách kiểm (ảnh ánh sáng tự nhiên). Nếu AI lỡ hứa hoàn (cái sai ở §2) thì đó là **lỗi hệ thống** — không sửa được bằng một câu xin lỗi sau đó vì tiền đã đi; phải chặn bằng mức tự chủ (§4).
+
+### Nguyên tắc HAX/PAIR (chính: G2, G10, G11; phụ: G1, G9, G15, PAIR)
+
+| Nguyên tắc | Trỏ vào chỗ nào (câu chữ / prototype, số trong ảnh) |
+|---|---|
+| **G11 — Giải thích vì sao** | (a) Thẻ "Đối chiếu mô tả" 2 cột lúc đặt ↔ hiện tại (K3) / lúc đặt ↔ ảnh tem (K4), dòng khác nhau tô vàng — **[3]**. (b) Mục mở ra **"Vì sao AI xếp mức này?"**: liệt kê yếu tố **+ / −** đã làm nghiêng nhận định (map *system input attributes → output*), và **what-if**: "Nếu thêm ảnh đo nước có vạch → hồ sơ đủ để shop/nhân viên xét" — chỉ nói hồ sơ đổi thế nào, **không** hứa kết quả tiền — **[4]** |
+| **G2 — Làm rõ làm tốt đến đâu** | **Độ chắc phân loại, hệ thống cư xử khác nhau theo mức** (không hiện %): *Đủ căn cứ* → điền sẵn yêu cầu ngay, không xin thêm · *Chưa đủ căn cứ* → xin đúng món còn thiếu · *Chưa rõ / ngoài thẩm quyền AI* → hỏi lại một câu hoặc chuyển người. Nhãn + "Dựa vào: …"; K4 còn nói hướng nghiêng — **[4]** |
+| **G10 — Thu hẹp phạm vi khi nghi ngờ** | K2 "hàng sai rồi, xử lý đi" → một câu hỏi + 3 thẻ đơn (N-best), chưa gửi gì cho người bán; K3 xin đúng 2 bằng chứng thay vì "gửi thêm bằng chứng" — **[2]**, **[5]** |
+| G1 — Làm rõ hệ thống làm được gì (+ Điều 11 Luật AI 134/2025) | *Capability cue là một phần của tương tác, không chỉ là câu giới thiệu:* (a) dải "Bạn đang trò chuyện với **trợ lý AI**"; (b) thẻ mở đầu **"Mình làm được / Mình không làm"** (đối chiếu mô tả lúc đặt, xin đúng bằng chứng, điền sẵn yêu cầu, chuyển nhân viên / không quyết hoàn tiền, không phạt shop, không đưa SĐT); (c) chip **"Thử nói"** hướng người mua vào kiểu tin AI xử lý tốt ("Đơn nồi chiên: dung tích không như mô tả", "Nhận sai size") — **[1]** |
+| G9 — Sửa dễ (+ undo) | *Khi AI sai, cho sửa kết quả thay vì làm lại từ đầu:* yêu cầu điền sẵn có nút **Sửa ở từng trường** (lý do, bằng chứng, đề nghị); việc AI tự làm có **toast "Hoàn tác"** ("AI đã tự chọn đơn Nồi chiên · Hoàn tác") và "Không phải đơn này?"; *Rút yêu cầu* trước khi shop phản hồi — **[2]**, **[6]** |
+| G15 — Mời feedback chi tiết | Dưới câu trả lời đối chiếu: "AI hiểu sai chỗ nào? *Sai đơn · Sai mô tả · Sai bằng chứng*" — **[12]** |
+| PAIR Errors + Graceful Failure | Mỗi loại lỗi một đường lui: thiếu bằng chứng → checklist + "📷 Ảnh tốt nhất khi: đủ sáng, chụp thẳng, thấy rõ vạch đo / chữ trên tem"; tin không hiểu → **màn lỗi kiêm hướng dẫn** (điều đã xảy ra · AI làm được gì · hoạt động tốt nhất khi nói *đơn nào, sai chỗ nào, kèm ảnh tem*) + chip gợi ý bước tiếp; ngoài thẩm quyền → *Gặp nhân viên* với dòng "Đang kết nối với nhân viên…" rồi tin của nhân viên thật, nhân viên thấy sẵn hồ sơ (không bắt kể lại); quá hạn → *Nhờ nhân viên xem ngoại lệ* — **[5]**, **[8]** |
+
+### Lỗi mà sửa câu chữ không cứu được: K3 (đọc nhầm phiên bản mô tả)
+
+Nếu AI chỉ có quyền đọc **trang sản phẩm hiện tại**, thì dù prompt có viết "hãy so với mô tả lúc đặt" bao nhiêu lần, AI **không có dữ liệu** của bản lúc đặt — nó sẽ trích dòng "lòng giỏ 5L" (có thật) một cách tự tin. Câu chữ càng lịch sự, lỗi càng khó phát hiện.
+
+**Thiết kế cứu:** thêm tool chỉ-đọc `xem_don_va_mo_ta_luc_dat` (§4) trả về **snapshot mô tả lúc đặt + diff với bản hiện tại + ngày sửa**; AI chỉ được trích mô tả từ snapshot. Trên màn hình, thẻ đối chiếu luôn ghi ngày của bản đang dùng, nên người mua, người bán và nhân viên đều tự kiểm được (PAIR: tin đúng mức). Lỗi tương tự: **AI hứa hoàn tiền** (K4) — không câu chữ nào rút lại được tiền đã đi; cứu bằng việc AI không có quyền gọi tool chuyển tiền (§4).
