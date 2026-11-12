@@ -1,6 +1,6 @@
 # Bài nộp LAB5 — T4 Thương mại điện tử · Nhóm YIM2
 
-> Bản soạn CP1. Chép §1 vào `spec.md` của repo nhóm, giữ bảng thành viên đã điền ở CP0.
+> Bản làm việc tại repo tài liệu. Khi ghép sang `spec.md` của repo nhóm, giữ bảng thành viên đã điền ở CP0.
 
 ## §1. Lát cắt & phạm vi
 
@@ -148,43 +148,57 @@ Nếu AI chỉ có quyền đọc **trang sản phẩm hiện tại**, thì dù 
 
 **Thiết kế cứu:** thêm tool chỉ-đọc `xem_don_va_mo_ta_luc_dat` (§4) trả về **snapshot mô tả lúc đặt + diff với bản hiện tại + ngày sửa**; AI chỉ được trích mô tả từ snapshot. Trên màn hình, thẻ đối chiếu luôn ghi ngày của bản đang dùng, nên người mua, người bán và nhân viên đều tự kiểm được (PAIR: tin đúng mức). Lỗi tương tự: **AI hứa hoàn tiền** (K4) — không câu chữ nào rút lại được tiền đã đi; cứu bằng việc AI không có quyền gọi tool chuyển tiền (§4).
 
+## §4. Mức tự chủ (chặng 4)
 
+Áp dụng chính sách dựng ở **Phụ lục**. AI không trực tiếp chuyển tiền hoặc đóng khiếu nại; các việc cần duyệt chỉ thực hiện sau xác nhận của đúng người.
 
+### 4.1. Mức cho từng tool
 
+| Tool | Mức | Lý do theo hậu quả khi sai và phương án loại |
+|---|---|---|
+| `yeu_cau_bang_chung` | **Tự làm** | Chỉ xin phần thiếu, đúng đơn; gửi shop sau khi người mua bấm Gửi. Tin nhầm không thu hồi được, phải đính chính (K2/K9). Loại duyệt từng câu vì làm K10 chờ và hỏi lặp. |
+| `chuyen_truong_nhom` | **Tự làm** | Khi bất đồng, shop quá 48 giờ hoặc người mua chọn gặp nhân viên. Chuyển nhầm gây chờ nhưng trưởng nhóm điều phối lại được; loại chờ duyệt vì hồ sơ bị treo thêm (K3/K4). |
+| `soan_hoan_tien` | **Cần người duyệt** | Hoàn sai làm shop mất tiền/hàng, khó đảo (K4). Duyệt thêm một bước để chặn mất tiền; so sánh các mức ở §4.3. |
+| `tu_choi_khieu_nai` | **Cần nhân viên duyệt** | Từ chối sai làm người mua mất tiền, khó đảo (K3). Chờ xét kéo dài nhưng tránh đóng oan; loại tự từ chối từ tem khớp, loại cấm hoàn toàn vì hồ sơ vẫn cần kết quả. |
+| `phat_shop` | **Cấm** | Phạt oan ảnh hưởng cả shop, khó gỡ (K5). Loại tự phạt/duyệt nhanh vì cần xác minh chuyên trách; chuyển trưởng nhóm dù phải chờ xác minh. |
 
+**Duyệt và quá hạn:**
 
+- **Người mua:** xem đơn, lý do, snapshot, ảnh và số tiền trước khi gửi; chưa duyệt thì giữ nháp, hết hạn xử lý như §3.
+- **Shop ở K1:** xem snapshot L, tem M, số tiền **189.000đ** rồi xác nhận hoàn; bất đồng/quá **48 giờ** thì chuyển trưởng nhóm, không tự hoàn.
+- **Nhân viên khi tranh chấp:** xem bằng chứng hai phía, snapshot, thay đổi mô tả và số tiền; không xét lời đe dọa. Quá **3 ngày làm việc** thì báo trễ hạn, chuyển trưởng nhóm theo dõi; không tự hoàn/đóng, không làm mất hiệu lực yêu cầu gửi đúng hạn.
 
+### 4.2. Tool thêm/tách bước
 
+| Tool | Mức và lý do |
+|---|---|
+| `xem_don_va_mo_ta_luc_dat` | **Tự làm**, chỉ đọc snapshot, bản hiện tại, ngày sửa và khác biệt theo §3; thiếu snapshot phải báo thiếu. Chặn K3 đọc sai phiên bản; đọc nhầm còn đổi đơn/đọc lại được, không cần chờ duyệt từng lần đọc. |
+| `soan_yeu_cau_tra_hang` | **Tự làm**, chỉ tạo nháp sửa/bỏ được. Tách khỏi gửi để chặn K2/K9; loại duyệt trước khi soạn vì chưa ảnh hưởng shop. |
+| `gui_yeu_cau_tra_hang` | **Cần người mua duyệt** theo §4.1. Tin gửi nhầm không thu hồi được; loại tự gửi khi AI đoán đơn (K2/K9). Chờ người mua kiểm tra là cần để tránh khiếu nại nhầm shop. |
 
+### 4.3. Tool khó xếp nhất: `soan_hoan_tien`
 
+**Lựa chọn ban đầu dưới đây là mô phỏng:**
 
+| Góc nhìn | Chọn | Cái giá của lựa chọn |
+|---|---|---|
+| Khương | Tự làm khi có snapshot, ảnh và shop nhận lỗi | K1 nhanh; nhưng lời chat chưa là xác nhận chuyển tiền, có thể gây hoàn sai như K4, mất 890.000đ và giày |
+| Duy | Cần người duyệt | Thêm bước xác nhận; chặn hoàn sai K4, K1 vẫn đi tiếp khi shop đồng ý |
+| Minh | Cấm trong luồng trợ lý, chuyển nhân viên riêng | Chặn AI hoàn sai nhưng K1 rõ ràng cũng phải chờ nhân viên |
 
+**Chốt: cần người duyệt**, theo lập luận của Duy; shop duyệt K1, nhân viên duyệt tranh chấp. Loại tự làm vì khó đảo khi sai; loại cấm khỏi luồng vì K1 phải chờ không cần thiết.
 
+### 4.4. Thử trên 2 ca đắt nhất và 1 ca bình thường (trên giấy)
 
+| Ca | Sai có bị chặn? | Còn làm khi lẽ ra phải hỏi? | Có chờ vô ích? |
+|---|---|---|---|
+| **K3 · A** | Có: đọc snapshot “6L”, không tự từ chối từ bản sửa 08/11 | Không: xin 2 bằng chứng còn thiếu, người mua duyệt gửi; tranh chấp chuyển nhân viên | Cần chờ bằng chứng/phản hồi, không hỏi lại ảnh đủ; theo hạn ở phụ lục. |
+| **K4 · B** | Có: tem khớp và lời đe dọa không kích hoạt hoàn/phạt | Không: bổ sung ảnh hoặc người mua gửi yêu cầu; AI không tự kết luận đúng/sai | Không chuyển chỉ vì bị đe dọa; chờ xét khi có tranh chấp hoặc người mua yêu cầu gặp nhân viên. |
+| **K1 · C** | Có: không tự hoàn chỉ từ lời nhận lỗi trong chat | Không: người mua duyệt gửi, shop xác nhận hoàn; không xin ảnh đã có | Shop đồng ý thì không chờ nhân viên; chỉ chuyển nếu bất đồng/quá 48 giờ. |
 
+### 4.5. Lời hứa thay đổi theo mức tự chủ
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Thay “AI hoàn tiền ngay” bằng: **“Mình soạn yêu cầu để bạn kiểm tra và gửi; shop xác nhận hoặc nhân viên quyết khi tranh chấp. Mình không tự hoàn tiền hay từ chối.”**
 
 ---
 
